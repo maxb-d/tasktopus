@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root,
+.app {
+    height: 100%;
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    cursor: default;
+    @apply text-black;
+}
+
+::selection {
+    background: rgb(255, 230, 0);
+}

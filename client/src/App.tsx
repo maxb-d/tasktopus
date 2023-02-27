@@ -1,10 +1,19 @@
+import { Routes, Route } from 'react-router-dom'
 
-function App() {
+import Layout from './layout/Layout'
+import Splash from './pages/splash/Splash'
+
+type Props = {}
+
+const App = (props: Props) => {
 
   return (
-    <div className="app">
-      HEY
-    </div>
+    <Routes>
+      <Route path='/' element={<Layout />} >
+        <Route index element={<Splash />} />
+
+      </Route>
+    </Routes>
   )
 }
 
