@@ -8,6 +8,7 @@ type Props = {}
 const App = (props: Props) => {
 
   return (
+    
     <Routes>
       <Route path='/' element={<Layout />} >
         <Route index element={<Splash />} />

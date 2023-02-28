@@ -19,7 +19,7 @@ const SplashHeader = ( { selectedPage, setSelectedPage }: Props) => {
 
     const [isMenuToggled, setIsMenuToggled] = useState(false) 
 
-    const handleClickOutside = (e) => {
+    const handleClickOutside = (e: any) => {
         e.stopPropagation()
         setIsMenuToggled(!isMenuToggled)
     }
@@ -28,7 +28,7 @@ const SplashHeader = ( { selectedPage, setSelectedPage }: Props) => {
     <header>
         {/* HEADER DIV */}
         <div 
-            className={`${flexString} fixed top-0 z-30 w-full py-6 bg-white`}
+            className={`${flexString}fixed top-0 z-30 w-full py-6 bg-white`}
             onClick={() => setIsMenuToggled(false)}    
         >
             {/* INSIDE HEADER DIV */}
