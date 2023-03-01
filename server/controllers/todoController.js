@@ -24,11 +24,11 @@ const createTodo = asyncHandler(async (req, res) => {
     })
     if (!todo) return res.status(500).json({ message: 'Unable to create Todo, server error'})
 
-    res.status(201).json({ message: 'Todo successfully created'})
+    res.json(todo)
 })
 
 // @desc Complete a todo
-// @route GET /todos/:id
+// @route GET /todos/:id/complete
 // @access Private
 const completeTodo = asyncHandler(async (req, res) => {
     const todo = await Todo.findById(req.params.id).exec()
@@ -38,13 +38,13 @@ const completeTodo = asyncHandler(async (req, res) => {
     todo.complete = !todo.complete
 
     const updatedTodo = await todo.save()
-    if (!result) return res.status(500).json({ message: 'Unable to save completed todo'})
+    if (!updatedTodo) return res.status(500).json({ message: 'Unable to save completed todo'})
 
     res.json(todo)
 })
 
 // @desc Edit a todo
-// @route GET /todos/:id
+// @route GET /todos/:id/edit
 // @access Private
 const editTodo = asyncHandler(async (req, res) => {
     const { text } = req.body
@@ -55,7 +55,7 @@ const editTodo = asyncHandler(async (req, res) => {
     todo.text = text
     const result = await todo.save()
 
-    res.json({ message: `Updated todo with content ${result.text}`})
+    res.json(result)
 })
 
 
@@ -67,7 +67,7 @@ const deleteTodo = asyncHandler(async (req, res) => {
 
     if (!result) return res.status(500).json({ message: `Unable to delete Todo with id ${req.params.id}`})
 
-    res.status(201).json({ message: `Todo with id ${req.params.id} successfully deleted`})
+    res.json(result)
 })
 
 module.exports = {

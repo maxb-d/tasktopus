@@ -5,7 +5,7 @@ import { SelectedPage } from '@/shared/types'
 import useMediaQuery from '@/hooks/useMediaQuery'
 import { Bars3BottomRightIcon, XMarkIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import Modal from '@/pages/splash/components/Modal'
 
 type Props = {
